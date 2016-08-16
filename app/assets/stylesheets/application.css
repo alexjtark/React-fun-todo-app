@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+div#react-container, div#todo-app {
+    width: 50%;
+    float: left;
+}
+.profile, .todo-list {
+    padding: 20px;
+    text-align: center;
+    background-color: #f7f7f7;
+    /*box-shadow: 0px 0px 2px 0px dimgrey;*/
+}
+.todo-single {
+    padding: 1px;
+    background: #ffbaba;
+    margin-bottom: 5px;
+}
