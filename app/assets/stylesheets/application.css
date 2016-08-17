@@ -14,6 +14,9 @@
  *= require_self
  */
 
+body {
+    overflow-x: hidden;
+}
 div#react-container, div#todo-app {
     width: 50%;
     float: left;
