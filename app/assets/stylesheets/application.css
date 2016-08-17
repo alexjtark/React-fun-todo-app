@@ -50,3 +50,10 @@ input.post-input {
     width: 300px;
     padding: 2px;
 }
+
+@media only screen and (max-width : 800px) {
+	div#react-container, div#todo-app {
+	    width: 100%;
+	    float: left;
+	}
+}
