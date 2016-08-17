@@ -50,6 +50,21 @@ input.post-input {
     width: 300px;
     padding: 2px;
 }
+div#footer {
+    width: 100%;
+    display: inline-block;
+    background: #0e809a;
+    color: white;
+    padding: 10px;
+}
+a.source-code {
+    background: #6cdaf3;
+    padding: 5px;
+    margin: 5px;
+    color: #3e3e3e;
+    text-decoration: none;
+    font-weight: 700;
+}
 
 @media only screen and (max-width : 800px) {
 	div#react-container, div#todo-app {
