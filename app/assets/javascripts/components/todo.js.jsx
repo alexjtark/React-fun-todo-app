@@ -86,8 +86,9 @@
 	class Todo extends React.Component {
 
 		render() {
+		
 			return (
-				<div className="todo-single">
+				<div className="todo-single" onClick={this.props.onClick}>
 				<p>{this.props.text}</p>
 				<p>{this.props.complete}</p>
 				</div>
@@ -140,15 +141,35 @@
 			super(props);
 			this.state = { todos: [] }
 		}
+		
+		removeTodo(post, e) {
+			e.preventDefault();
+			$.ajax({
+			  url: '/todos/' + post.id,
+			  dataType: 'json',
+			  type: 'DELETE',
+			  cache: false,
+			  success: function(data) {
+			    this.setState({	data: data});
+			    this.getTodos();
+			  }.bind(this),
+			  error: function(xhr, status, err) {
+			    console.error(this.props.url, status, err.toString());
+			  }.bind(this)
+			});
+
+		}
 
 		render() {
 
 		var todos = this.state;
 		var todoNodes = this.state.todos.map(function(post) {
+		var deleteTodo = this.removeTodo.bind(this, post);
+		
 			return (
-				<Todo text={post.text} key={post.id} complete={post.complete} id={post.id}> </Todo>
+				<Todo text={post.text} key={post.id} complete={post.complete} id={post.id} onClick={deleteTodo}/>
 				)
-		});
+		}, this );
 
 			return  (	<div className="todo-list">
 									<h1>What Do You Want to Accomplish Today?</h1>
@@ -188,6 +209,7 @@
 				  data: { todo: { text: todo.text} },
 				  success: function(data) {
 				    this.setState({	data: listall});
+				    this.getTodos();
 				  }.bind(this),
 				  error: function(xhr, status, err) {
 				    this.setState({data: posts});
