@@ -68,6 +68,11 @@ a.source-code {
     text-decoration: none;
     font-weight: 700;
 }
+.todo-single button {
+    float: right;
+    position: relative;
+    background: #f50022;
+}
 
 @media only screen and (max-width : 800px) {
 	div#react-container, div#todo-app {

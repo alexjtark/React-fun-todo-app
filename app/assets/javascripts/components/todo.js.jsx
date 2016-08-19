@@ -88,7 +88,8 @@
 		render() {
 		
 			return (
-				<div className="todo-single" onClick={this.props.onClick}>
+				<div className="todo-single">
+				<button onClick={this.props.onClick}>Delete</button>
 				<p>{this.props.text}</p>
 				<p>{this.props.complete}</p>
 				</div>
