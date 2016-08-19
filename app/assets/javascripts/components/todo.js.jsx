@@ -108,7 +108,6 @@
 		handleSubmit(e) {
 			e.preventDefault();
 			var text = this.state.text.trim();
-			console.log(text);
 			this.props.onTodoSubmit({text: text});
 			this.setState({text: ''});
 		}
